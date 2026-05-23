@@ -162,7 +162,7 @@ export default function AuthPage({ onClose }) {
                 </button>
               </p>
 
-              {mode === 'login' && (
+              {/* {mode === 'login' && (
                 <div className={styles.demoAccounts}>
                   <div className={styles.demoTitle}>Demo Accounts</div>
                   <div className={styles.demoRow}>
@@ -176,7 +176,7 @@ export default function AuthPage({ onClose }) {
                     <span>/ <code>Admin@1234</code></span>
                   </div>
                 </div>
-              )}
+              )} */}
             </motion.div>
           </AnimatePresence>
         </div>
