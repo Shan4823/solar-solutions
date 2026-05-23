@@ -1,0 +1,37 @@
+.footer { background: var(--slate); color: rgba(255,255,255,0.5); }
+.inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 3rem; padding: 4.5rem 2rem 3.5rem; }
+.brand {}
+.logo {
+  font-family: var(--font-head); font-size: 1.2rem; font-weight: 700; color: #fff;
+  display: flex; align-items: center; gap: 10px; margin-bottom: 0.9rem; letter-spacing: -0.01em;
+}
+.logoIcon {
+  width: 32px; height: 32px;
+  background: linear-gradient(135deg, var(--amber) 0%, var(--amber-dark) 100%);
+  border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white;
+}
+.brandText { font-size: 0.86rem; line-height: 1.75; max-width: 230px; color: rgba(255,255,255,0.45); }
+.certBadges { display: flex; gap: 6px; margin-top: 1.4rem; flex-wrap: wrap; }
+.cert {
+  font-size: 0.7rem; font-weight: 600; padding: 4px 10px; border-radius: var(--r-sm);
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5);
+  letter-spacing: 0.03em;
+}
+.col h4 {
+  font-family: var(--font-body); font-size: 0.75rem; font-weight: 700; color: rgba(255,255,255,0.85);
+  margin-bottom: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase;
+}
+.col a {
+  display: block; font-size: 0.86rem; color: rgba(255,255,255,0.45); text-decoration: none;
+  margin-bottom: 9px; transition: color 0.18s;
+}
+.col a:hover { color: rgba(255,255,255,0.88); }
+.bottom { border-top: 1px solid rgba(255,255,255,0.08); }
+.bottomInner {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.78rem; padding: 1.6rem 2rem; flex-wrap: wrap; gap: 0.5rem;
+  color: rgba(255,255,255,0.3);
+}
+.bottomAccent { color: var(--amber); }
+@media (max-width: 900px) { .inner { grid-template-columns: 1fr 1fr; gap: 2rem; padding: 3rem 1.5rem; } }
+@media (max-width: 560px) { .inner { grid-template-columns: 1fr; } .bottomInner { flex-direction: column; text-align: center; padding: 1.3rem 1rem; } }

@@ -1,0 +1,65 @@
+.section { padding: 6rem 2rem; background: var(--grey-1); }
+.head { margin-bottom: 3.5rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem; }
+
+.card {
+  border-radius: var(--r-lg); padding: 2rem; border: 1.5px solid;
+  position: relative; overflow: hidden; transition: all 0.3s var(--ease-smooth);
+}
+.card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+.cardGlow {
+  position: absolute; top: -60px; right: -60px; width: 200px; height: 200px;
+  border-radius: 50%; opacity: 0.12; pointer-events: none;
+}
+.tierTag {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+  margin-bottom: 1rem; display: block; opacity: 0.7;
+}
+.amount {
+  font-family: var(--font-head); font-size: 2.6rem; font-weight: 700;
+  margin-bottom: 0.35rem; line-height: 1; letter-spacing: -0.02em;
+}
+.capacity { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; opacity: 0.8; }
+.desc { font-size: 0.86rem; color: var(--grey-5); line-height: 1.65; }
+
+/* Checker */
+.checker {
+  background: var(--white); border: 1px solid var(--grey-2);
+  border-radius: var(--r-lg); padding: 2.5rem; box-shadow: var(--shadow-sm);
+}
+.checkerTitle {
+  font-family: var(--font-head); font-size: 1.3rem; font-weight: 700;
+  margin-bottom: 0.4rem; color: var(--slate);
+}
+.checkerSub { font-size: 0.88rem; color: var(--grey-5); margin-bottom: 2rem; }
+.formRow { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; margin-bottom: 1.1rem; }
+.formGroup { display: flex; flex-direction: column; gap: 6px; }
+.formGroup label { font-size: 0.82rem; font-weight: 600; color: var(--slate-4); }
+.formGroup input, .formGroup select {
+  padding: 11px 14px; background: var(--grey-1); border: 1.5px solid var(--grey-2);
+  border-radius: var(--r-md); font-family: var(--font-body); font-size: 0.92rem;
+  color: var(--slate); outline: none; transition: all 0.2s;
+}
+.formGroup input:focus, .formGroup select:focus {
+  border-color: var(--teal); background: white; box-shadow: 0 0 0 3px rgba(13,123,101,0.1);
+}
+.checkBtn {
+  padding: 13px 28px; background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+  color: #fff; border: none; border-radius: var(--r-md); font-family: var(--font-body);
+  font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.25s var(--ease-smooth);
+  letter-spacing: 0.02em;
+}
+.checkBtn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(13,123,101,0.35); }
+.result {
+  margin-top: 1.5rem; padding: 1.4rem 1.6rem; border-radius: var(--r-md); border: 1.5px solid;
+}
+.ok { background: var(--teal-light); border-color: rgba(13,123,101,0.25); }
+.warn { background: var(--amber-light); border-color: rgba(232,150,12,0.3); }
+.resultTitle { font-family: var(--font-head); font-size: 1rem; font-weight: 600; color: var(--teal-dark); margin-bottom: 0.4rem; }
+.warn .resultTitle { color: var(--amber-deep); }
+.resultDetail { font-size: 0.88rem; color: var(--grey-5); line-height: 1.68; }
+@media (max-width: 640px) {
+  .section { padding: 4rem 1rem; }
+  .formRow { grid-template-columns: 1fr; }
+  .checker { padding: 1.75rem; }
+}

@@ -1,0 +1,60 @@
+.section { background: var(--grey-1); padding: 5rem 2rem; border-top: 1px solid var(--grey-2); }
+.header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; }
+.titleBlock {}
+.title { font-family: var(--font-head); font-size: 1.7rem; font-weight: 700; color: var(--slate); letter-spacing: -0.02em; }
+.sub { font-size: 0.88rem; color: var(--grey-5); margin-top: 4px; }
+.adminBadge {
+  display: flex; align-items: center; gap: 7px; font-size: 0.78rem; font-weight: 600;
+  padding: 7px 16px; background: var(--slate); color: white; border-radius: var(--r-full);
+  letter-spacing: 0.04em;
+}
+.adminDot { width: 7px; height: 7px; border-radius: 50%; background: var(--amber); animation: blink2 2s infinite; }
+@keyframes blink2 { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+.dashStats { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; margin-bottom: 2rem; }
+.dashStat {
+  background: var(--white); border: 1px solid var(--grey-2); border-radius: var(--r-lg);
+  padding: 1.4rem 1.6rem; position: relative; overflow: hidden;
+}
+.dashStat::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: var(--r-lg) var(--r-lg) 0 0;
+  background: var(--accentColor, var(--grey-2));
+}
+.dsLabel { font-size: 0.78rem; font-weight: 600; color: var(--grey-5); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+.dsValue { font-family: var(--font-head); font-size: 1.8rem; font-weight: 700; color: var(--slate); line-height: 1; letter-spacing: -0.02em; }
+.dsSub { font-size: 0.76rem; color: var(--grey-4); margin-top: 4px; }
+
+.tableWrap { background: var(--white); border: 1px solid var(--grey-2); border-radius: var(--r-lg); overflow: hidden; }
+.table { width: 100%; border-collapse: collapse; min-width: 700px; }
+.table th {
+  background: var(--grey-1); font-size: 0.73rem; font-weight: 700; color: var(--grey-5);
+  text-transform: uppercase; letter-spacing: 0.08em; padding: 13px 18px; text-align: left;
+}
+.table td { padding: 14px 18px; font-size: 0.88rem; border-top: 1px solid var(--grey-2); }
+.idCell { font-size: 0.77rem; color: var(--grey-4); font-weight: 600; font-family: monospace; }
+.nameCell { font-weight: 600; color: var(--slate); }
+.mutedCell { color: var(--grey-5); }
+
+.statusBadge {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 0.73rem; font-weight: 600; padding: 4px 10px; border-radius: var(--r-full);
+}
+.statusDot { width: 5px; height: 5px; border-radius: 50%; }
+
+.actions { display: flex; gap: 6px; }
+.btn {
+  font-size: 0.78rem; padding: 5px 13px; border-radius: var(--r-sm); border: 1.5px solid;
+  cursor: pointer; font-family: var(--font-body); font-weight: 600; transition: all 0.18s; background: transparent;
+}
+.btnApprove { border-color: var(--teal); color: var(--teal); }
+.btnApprove:hover { background: var(--teal-light); }
+.btnReject { border-color: var(--danger); color: var(--danger); }
+.btnReject:hover { background: var(--danger-light); }
+.btnReset { border-color: var(--grey-3); color: var(--grey-5); }
+.btnReset:hover { background: var(--grey-1); }
+
+@media (max-width: 768px) {
+  .section { padding: 3rem 1rem; }
+  .dashStats { grid-template-columns: repeat(2,1fr); }
+  .tableWrap { overflow-x: auto; }
+}

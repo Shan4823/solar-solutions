@@ -1,0 +1,50 @@
+.wrapper { padding: 0 2rem 4rem; }
+.banner {
+  background: linear-gradient(135deg, var(--slate) 0%, var(--slate-2) 60%, var(--slate-3) 100%);
+  border-radius: var(--r-xl); padding: 3.5rem 4rem; position: relative; overflow: hidden;
+}
+.banner::before {
+  content: ''; position: absolute; top: -80px; right: -80px; width: 320px; height: 320px;
+  background: radial-gradient(circle, rgba(232,150,12,0.12) 0%, transparent 65%); pointer-events: none;
+}
+.banner::after {
+  content: ''; position: absolute; bottom: -60px; left: 10%; width: 240px; height: 240px;
+  background: radial-gradient(circle, rgba(13,123,101,0.1) 0%, transparent 65%); pointer-events: none;
+}
+.topBar {
+  display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.5rem;
+  position: relative; z-index: 1;
+}
+.topLabel {
+  font-family: var(--font-body); font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber); display: flex; align-items: center; gap: 8px;
+}
+.topLabel::before { content: ''; width: 16px; height: 2px; background: var(--amber); border-radius: 1px; }
+.topTitle {
+  font-family: var(--font-head); font-size: 1rem; font-weight: 600; color: rgba(255,255,255,0.8); font-style: italic;
+}
+.inner {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 0; position: relative; z-index: 1;
+}
+.stat {
+  display: flex; flex-direction: column; align-items: center; gap: 5px;
+  padding: 1.5rem 1rem; text-align: center; position: relative;
+}
+.stat + .stat::before {
+  content: ''; position: absolute; left: 0; top: 20%; bottom: 20%;
+  width: 1px; background: rgba(255,255,255,0.1);
+}
+.big {
+  font-family: var(--font-head); font-size: clamp(1.9rem, 2.8vw, 2.6rem);
+  font-weight: 700; color: #fff; line-height: 1; letter-spacing: -0.02em;
+}
+.bigAccent { color: var(--amber); }
+.small { font-size: 0.8rem; color: rgba(255,255,255,0.58); line-height: 1.45; font-weight: 400; }
+@media (max-width: 768px) {
+  .wrapper { padding: 0 1rem 2.5rem; }
+  .banner { padding: 2.5rem 1.75rem; border-radius: var(--r-lg); }
+  .topBar { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
+  .inner { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+  .stat + .stat::before { display: none; }
+}

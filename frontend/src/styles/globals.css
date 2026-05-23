@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --amber: #E8960C;
+  --amber-light: #FEF7E0;
+  --amber-mid: #FBDEA0;
+  --amber-dark: #B5720A;
+  --amber-deep: #7A4C06;
+  --teal: #0D7B65;
+  --teal-light: #D0F0EA;
+  --teal-mid: #9FE0D5;
+  --teal-dark: #095C4B;
+  --teal-xdark: #053D32;
+  --slate: #0F1923;
+  --slate-2: #182330;
+  --slate-3: #243040;
+  --slate-4: #36475A;
+  --slate-5: #516070;
+  --grey-1: #F5F7FA;
+  --grey-2: #E9EDF2;
+  --grey-3: #CDD5DF;
+  --grey-4: #9AAAB8;
+  --grey-5: #637282;
+  --danger: #D63A2F;
+  --danger-light: #FDE8E6;
+  --white: #FFFFFF;
+  --font-head: 'Fraunces', Georgia, serif;
+  --font-body: 'Outfit', system-ui, sans-serif;
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --r-xl: 32px;
+  --r-full: 999px;
+  --shadow-xs: 0 1px 4px rgba(15,25,35,0.05);
+  --shadow-sm: 0 2px 12px rgba(15,25,35,0.07);
+  --shadow-md: 0 6px 28px rgba(15,25,35,0.09);
+  --shadow-lg: 0 14px 50px rgba(15,25,35,0.12);
+  --shadow-xl: 0 28px 80px rgba(15,25,35,0.15);
+  --ease-spring: cubic-bezier(0.34,1.56,0.64,1);
+  --ease-smooth: cubic-bezier(0.22,1,0.36,1);
+  --ease-out: cubic-bezier(0.16,1,0.3,1);
+}
+
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
+body { font-family: var(--font-body); background: var(--white); color: var(--slate); line-height: 1.6; overflow-x: hidden; }
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--grey-1); }
+::-webkit-scrollbar-thumb { background: var(--grey-3); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--slate-4); }
+
+.container { max-width: 1120px; margin: 0 auto; padding: 0 2rem; width: 100%; }
+
+.section-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-body); font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--amber-dark); margin-bottom: 1rem;
+}
+.section-label::before {
+  content: ''; display: inline-block; width: 20px; height: 2px;
+  background: linear-gradient(90deg, var(--amber), var(--amber-dark)); border-radius: 1px;
+}
+
+.section-title {
+  font-family: var(--font-head); font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; color: var(--slate); margin-bottom: 1.1rem;
+}
+
+.section-sub { font-size: 1.05rem; color: var(--grey-5); max-width: 520px; line-height: 1.78; font-weight: 400; }
+
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+  color: #fff; font-family: var(--font-body); font-size: 0.93rem; font-weight: 600;
+  padding: 14px 30px; border-radius: var(--r-md); border: none; cursor: pointer;
+  transition: all 0.28s var(--ease-smooth); text-decoration: none; white-space: nowrap;
+  position: relative; overflow: hidden; letter-spacing: 0.01em;
+}
+.btn-primary::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 60%); opacity: 0; transition: opacity 0.2s; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(13,123,101,0.35); }
+.btn-primary:hover::after { opacity: 1; }
+
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 9px; background: transparent; color: var(--slate);
+  font-family: var(--font-body); font-size: 0.93rem; font-weight: 600; padding: 13px 30px;
+  border-radius: var(--r-md); border: 1.5px solid var(--grey-3); cursor: pointer;
+  transition: all 0.25s var(--ease-smooth); text-decoration: none; white-space: nowrap; letter-spacing: 0.01em;
+}
+.btn-secondary:hover { border-color: var(--slate-4); background: var(--grey-1); transform: translateY(-1px); }
+
+::selection { background: var(--amber-mid); color: var(--slate); }

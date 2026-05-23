@@ -1,0 +1,48 @@
+.section { padding: 6rem 2rem; background: var(--grey-1); }
+.head { margin-bottom: 4rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+.card {
+  background: var(--white); border: 1px solid var(--grey-2);
+  border-radius: var(--r-lg); padding: 2rem; position: relative;
+  overflow: hidden; transition: all 0.32s var(--ease-smooth); cursor: default;
+}
+.card:hover { box-shadow: var(--shadow-md); transform: translateY(-5px); border-color: var(--grey-3); }
+.card::after {
+  content: ''; position: absolute; inset: 0; border-radius: var(--r-lg);
+  background: linear-gradient(135deg, rgba(232,150,12,0.04) 0%, transparent 60%);
+  opacity: 0; transition: opacity 0.3s;
+}
+.card:hover::after { opacity: 1; }
+.topLine {
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--amber) 0%, var(--teal) 100%);
+  transform: scaleX(0); transform-origin: left; transition: transform 0.4s var(--ease-smooth);
+}
+.card:hover .topLine { transform: scaleX(1); }
+.iconWrap {
+  width: 48px; height: 48px; border-radius: var(--r-md);
+  background: linear-gradient(135deg, var(--amber-light) 0%, rgba(232,150,12,0.05) 100%);
+  border: 1px solid rgba(232,150,12,0.2);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1.25rem; font-size: 1.3rem; transition: transform 0.3s var(--ease-spring);
+}
+.card:hover .iconWrap { transform: scale(1.1) rotate(-5deg); }
+.stepNum {
+  position: absolute; top: 1.6rem; right: 1.6rem;
+  font-family: var(--font-head); font-size: 4rem; font-weight: 700;
+  color: var(--grey-2); line-height: 1; letter-spacing: -0.03em;
+  transition: color 0.3s;
+}
+.card:hover .stepNum { color: rgba(232,150,12,0.12); }
+.stepTitle {
+  font-family: var(--font-head); font-size: 1.05rem; font-weight: 600;
+  margin-bottom: 0.6rem; color: var(--slate); line-height: 1.3;
+}
+.stepDesc { font-size: 0.875rem; color: var(--grey-5); line-height: 1.72; }
+.connector {
+  position: absolute; top: 50%; right: -0.76rem;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--grey-2); border: 2px solid white;
+  z-index: 2; transform: translateY(-50%);
+}
+@media (max-width: 600px) { .section { padding: 4rem 1rem; } }

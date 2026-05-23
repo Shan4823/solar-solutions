@@ -1,0 +1,28 @@
+.wrapper { position: relative; }
+.card {
+  background: white; border-radius: var(--r-xl);
+  border: 1px solid var(--grey-2); padding: 2rem;
+  box-shadow: var(--shadow-lg);
+  position: relative; overflow: hidden;
+}
+.card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--amber) 0%, var(--teal) 100%);
+}
+.svg { width: 100%; display: block; }
+.pillGreen {
+  position: absolute; top: -20px; right: -16px;
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+  color: #fff; border-radius: var(--r-lg); padding: 13px 20px;
+  box-shadow: 0 8px 28px rgba(13,123,101,0.35);
+  display: flex; flex-direction: column;
+}
+.pillSun {
+  position: absolute; bottom: -20px; left: -16px;
+  background: linear-gradient(135deg, var(--amber) 0%, var(--amber-dark) 100%);
+  color: #fff; border-radius: var(--r-lg); padding: 13px 20px;
+  box-shadow: 0 8px 28px rgba(232,150,12,0.4);
+  display: flex; flex-direction: column;
+}
+.pillAmount { font-family: var(--font-head); font-size: 1.4rem; font-weight: 700; line-height: 1.2; }
+.pillLabel { font-size: 0.7rem; opacity: 0.85; margin-top: 3px; font-weight: 500; letter-spacing: 0.03em; }

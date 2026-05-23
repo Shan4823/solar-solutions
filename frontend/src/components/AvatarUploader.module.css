@@ -1,0 +1,134 @@
+/* ── Avatar wrapper ── */
+.wrap {
+  position: relative;
+  width: var(--av-size, 88px);
+  height: var(--av-size, 88px);
+  user-select: none;
+}
+
+/* ── Avatar circle ── */
+.avatar {
+  width: 100%; height: 100%; border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+  border: 3px solid #fff;
+  box-shadow: 0 4px 18px rgba(13,123,101,0.3);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; position: relative; overflow: hidden;
+  transition: box-shadow 0.22s, transform 0.22s;
+}
+.avatar:hover { transform: scale(1.04); box-shadow: 0 6px 24px rgba(13,123,101,0.4); }
+.avatar.dragging { border-color: var(--amber); box-shadow: 0 0 0 4px rgba(232,150,12,0.25); }
+
+.avatarImg {
+  width: 100%; height: 100%;
+  object-fit: cover; border-radius: 50%;
+}
+.avatarInitial {
+  font-family: var(--font-head);
+  font-size: calc(var(--av-size, 88px) * 0.4);
+  font-weight: 700; color: #fff;
+}
+
+/* Camera overlay on hover */
+.avatarOverlay {
+  position: absolute; inset: 0; border-radius: 50%;
+  background: rgba(9,92,75,0.72);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; opacity: 0;
+  transition: opacity 0.2s;
+}
+.avatar:hover .avatarOverlay { opacity: 1; }
+
+/* Drag overlay */
+.dragOverlay {
+  position: absolute; inset: 0; border-radius: 50%;
+  background: rgba(232,150,12,0.8);
+  display: flex; align-items: center; justify-content: center; color: #fff;
+}
+
+/* ── Context menu ── */
+.menu {
+  position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+  background: #fff; border: 1px solid var(--grey-2);
+  border-radius: 12px; box-shadow: 0 8px 28px rgba(15,25,35,0.14);
+  overflow: hidden; min-width: 160px; z-index: 100;
+  animation: menuIn 0.15s ease;
+}
+@keyframes menuIn { from { opacity:0; transform: translateX(-50%) translateY(-6px); } to { opacity:1; transform: translateX(-50%) translateY(0); } }
+.menuItem {
+  display: flex; align-items: center; gap: 9px; width: 100%;
+  padding: 11px 16px; background: none; border: none; cursor: pointer;
+  font-family: var(--font-body); font-size: 0.855rem; font-weight: 600;
+  color: var(--slate); transition: background 0.15s; text-align: left;
+}
+.menuItem:hover { background: var(--grey-1); }
+.menuItemDanger { color: #DC2626; }
+.menuItemDanger:hover { background: #FEF2F2; }
+
+/* ── Crop modal ── */
+.cropModal {
+  position: fixed; inset: 0; z-index: 1200;
+  background: rgba(15,25,35,0.65); backdrop-filter: blur(10px);
+  display: flex; align-items: center; justify-content: center; padding: 1rem;
+}
+.cropCard {
+  background: #fff; border-radius: 24px;
+  box-shadow: 0 32px 80px rgba(15,25,35,0.2);
+  width: 100%; max-width: 380px; padding: 1.8rem;
+}
+.cropHeader {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 1.4rem;
+}
+.cropTitle { font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; color: var(--slate); }
+.cropClose {
+  width: 30px; height: 30px; border-radius: 8px; border: none;
+  background: var(--grey-1); color: var(--grey-5); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.cropClose:hover { background: var(--grey-2); }
+
+.cropPreviewWrap { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 1.2rem; }
+.cropCircle {
+  width: 180px; height: 180px; border-radius: 50%;
+  overflow: hidden; border: 3px solid var(--grey-2);
+  box-shadow: 0 4px 18px rgba(15,25,35,0.1);
+  background: var(--grey-1); display: flex; align-items: center; justify-content: center;
+}
+.cropImg { width: 100%; height: 100%; object-fit: cover; transition: transform 0.15s; }
+.cropHint { font-size: 0.75rem; color: var(--grey-5); text-align: center; }
+
+.zoomRow {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 1.4rem;
+}
+.zoomSlider {
+  flex: 1; -webkit-appearance: none; height: 4px;
+  background: var(--grey-2); border-radius: 2px; outline: none; cursor: pointer;
+}
+.zoomSlider::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%;
+  background: var(--teal); cursor: pointer; box-shadow: 0 2px 6px rgba(13,123,101,0.4);
+}
+
+.cropActions { display: flex; gap: 10px; }
+.cropCancel {
+  flex: 1; padding: 11px; border-radius: 10px; border: 1.5px solid var(--grey-2);
+  background: #fff; color: var(--slate); font-family: var(--font-body); font-size: 0.9rem;
+  font-weight: 600; cursor: pointer; transition: background 0.18s;
+}
+.cropCancel:hover { background: var(--grey-1); }
+.cropSave {
+  flex: 2; padding: 11px; border-radius: 10px; border: none;
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+  color: #fff; font-family: var(--font-body); font-size: 0.9rem; font-weight: 600;
+  cursor: pointer; transition: all 0.22s;
+}
+.cropSave:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(13,123,101,0.3); }
+.cropSave:disabled { opacity: 0.65; cursor: not-allowed; transform: none; }
+
+/* ── Mobile ── */
+@media (max-width: 480px) {
+  .cropCard { padding: 1.4rem; }
+  .cropCircle { width: 140px; height: 140px; }
+  .menu { min-width: 140px; }
+}
