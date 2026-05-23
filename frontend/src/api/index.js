@@ -49,5 +49,3 @@ export const api = {
   deleteAccount:    (body)  => request('/auth/account',  { method: 'DELETE', body: JSON.stringify(body) }),
 };
 
-// re-export for convenience
-export { api };

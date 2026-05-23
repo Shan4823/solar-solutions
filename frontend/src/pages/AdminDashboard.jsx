@@ -151,8 +151,10 @@ function OverviewView({ stats, setView }) {
       initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.28 }}
     >
-      <PageHeader title="Dashboard Overview" sub={`Good day, ${stats ? 'here's a live snapshot.' : 'loading data…'}`} />
-
+      <PageHeader
+  title="Dashboard Overview"
+  sub={`Good day, ${stats ? "here's a live snapshot." : "loading data…"}`}
+/>
       {/* Stat grid */}
       <div className={styles.statGrid}>
         {statCards.map(({ label, value, icon: Icon, accent, bg }, i) => (
